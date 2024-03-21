@@ -1,0 +1,19 @@
+# 省略するフォルダ
+db.sqlite3
+*.jpg
+*.pyc
+/shelf/
+/venv/
+/media/
+ecshopapp/__pycache__
+.VSCodeCounter/
+.idea/
+.vscode/
+ecshopapp/migrations
+ecshop/migrations/
+/workspace.xml
+#http
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml

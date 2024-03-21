@@ -1,0 +1,12 @@
+Django
+diff-match-patch
+django-filter
+django-import-export
+django-mysql
+django-simpleui
+djangorestframework==3.14.0
+pip
+setuptools
+wheel
+django-mdeditor
+Pillow
