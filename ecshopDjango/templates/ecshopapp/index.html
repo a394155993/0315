@@ -1,0 +1,26 @@
+{% extends 'ecshopapp/base_site.html' %}
+{% block meta %}{% endblock %}
+{% block title %}三和レンタル-トップページ{% endblock title %}
+{% block style %}{% endblock style %}
+{% block content %}
+<div class="list_model">
+    <div style="margin: 15px 0">
+        <h4 class="headline">最新商品 </h4>
+    </div>
+
+    <div class="goods_con clearfix">
+        <ul class="goods_list fl">
+            {% for good in new_goods_obj %}
+                <li class="rounded">
+                    <h4><a href="{% url 'home:detail' good.id %}">{{ good.name }}</a></h4>
+                    <a href="{% url 'home:detail' good.id %}"><img class="rounded" src="/media/{{ good.image }}"></a>
+                    <div class="prize">¥ {{ good.price }}</div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock content %}
+{% block script %}
+{% endblock script %}
+

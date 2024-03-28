@@ -1,0 +1,52 @@
+{% extends 'ecshopapp/base_site.html' %}
+{% block meta %}{% endblock %}
+{% block title %}三和レンタル-新規登録{% endblock title %}
+{% block style %}{% endblock style %}
+{% block exclude_footer %}
+    <div class="register_con">
+        <div class="l_con fl">
+        <div class="reg_slogan">三和レンタル</div>
+        <div class="reg_banner"></div>
+        </div>
+        <div class="r_con fr">
+            <div class="reg_title clearfix">
+                <h1>新規登録</h1>
+                <a href="{% url 'home:login' %}" class="decoration">ログイン</a>
+            </div>
+            <div class="reg_form clearfix">
+                <form id="reg_form" method="post">
+                    {% csrf_token %}
+                    <ul>
+                        <li>
+                            <label>ユーザー名:</label>
+                            <input type="text" name="username" id="user_name" class="form-control" required="required" placeholder="最低2文字、最長20文字まで" oninvalid="setCustomValidity('ユーザー名を入力してください');" oninput="setCustomValidity('');">
+                        </li>
+                        <li>
+                            <label>パスワード:</label>
+                            <input type="password" name="password1" id="pwd" class="form-control"  required="required" placeholder="最低8文字、最長20文字まで" oninvalid="setCustomValidity('パスワードを入力してください');" oninput="setCustomValidity('');">
+                        </li>
+                        <li>
+                            <label>もう一度パスワードを入力してください</label>
+                            <input type="password" name="password2" id="cpwd" class="form-control" required="required" placeholder="上記のパスワードと同じように" oninvalid="setCustomValidity('もう一度パスワードを入力してください');" oninput="setCustomValidity('');">
+                        </li>
+                        <li>
+                            <label>会社名:</label>
+                            <input type="text" name="first_name" id="first_name" class="form-control"  required="required" placeholder="会社名を入力して下さい。" oninvalid="setCustomValidity('ニックネームを確認してください');" oninput="setCustomValidity('');">
+                        </li>
+                        <li>
+                            <label>メールアドレス:</label>
+                            <input type="text" name="user_email" id="email" class="form-control"  required="required" placeholder="" oninvalid="setCustomValidity('メールアドレスを確認してください');" oninput="setCustomValidity('');">
+                        </li>
+                        <li class="agreement">
+                            <input type="checkbox" class="form-check-input" name="allow" id="allow" required="required" placeholder="" oninvalid="setCustomValidity('会員規約・個人情報保護方針に同意してください');" oninput="setCustomValidity('');">
+                            <label class="form-check-label">会員規約・個人情報保護方針に同意する</label>
+                            <span class="error_tip2"></span>
+                        </li>
+                        <li>
+                            <button type="submit" class="btn btn-primary" style="padding: 5px 105px;margin-top: 10px">サインアップ</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+{% endblock exclude_footer %}

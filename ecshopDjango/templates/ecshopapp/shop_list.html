@@ -1,0 +1,26 @@
+{% extends 'ecshopapp/base_site.html' %}
+{% block meta %}{% endblock %}
+{% block title %}三和レンタル-商品{% endblock title %}
+{% block style %}{% endblock style %}
+{% block content %}
+<div class="main_wrap clearfix">
+    <div class="r_wrap fr clearfix">
+        <div class="rounded sort_bar_f">
+        </div>
+        <ul class="goods_type_list clearfix">
+            {% for good in goods_obj %}
+                <li class="shop_list">
+                    <div class="phn_con">
+                        <div>
+                            <a><img alt="goods photo" class="rounded" src="/media/{{ good.image }}"></a>
+                        </div>
+                        <div>
+                            <h4><a class="ud_line" href="{% url 'home:detail' good.id %}">{{ good.name }}</a></h4>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock content %}

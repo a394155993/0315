@@ -1,0 +1,66 @@
+{% extends 'ecshopapp/base_site.html' %}
+{% block meta %}{% endblock %}
+{% block title %}商品詳細{% endblock title %}
+{% block style %}{% endblock style %}
+{% block content %}
+    <div class="breadcrumb">
+        <a >商品詳細</a>
+    </div>
+    <div class="goods_detail_con clearfix rounded">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <img class="img-fluid" src="{{ good_obj.image.url }}" alt="{{ good_obj.name }}">
+        </div>
+    
+            <div class="goods_detail_list fr">
+                <h3>{{ good_obj.name }}</h3>
+                <p>{{ good_obj.desc }}</p>
+                <div class="prize_bar rounded">
+                    <span class="show_pirze">¥<em>{{ good_obj.price }}</em></span>
+                </div>
+                <div class="goods_num clearfix">
+                    <div class="num_name fl">数　量：</div>
+                    <div class="num_add fl" style="box-sizing:content-box">
+                        <input type="text" class="num_show fl" value="1" onchange="changeGoodCount()" id="good_count">
+                        <a class="add fr decoration" onclick="addGoodCount()">+</a>
+                        <a class="minus fr decoration" onclick="subGoodCount()">-</a>
+                    </div>
+                </div>
+                <div class="operate_btn">
+                    <a href="javascript:;" class="add_cart decoration rounded btn btn-danger" id="add_cart">カートに入れる</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <ul class="nav nav-tabs" id="productTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="product-detail-tab" data-toggle="tab" href="#productDetail" role="tab" aria-controls="productDetail" aria-selected="true">商品情報</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="productDetail" role="tabpanel" aria-labelledby="product-detail-tab">
+                    <div class="main_wrap clearfix">
+                        <div class="r_wrap fr clearfix">
+                            {{ html_content|safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+{% endblock content %}
+{% block script %}
+    <script type="text/javascript">
+        function addGoodCount() {
+            var countInput = document.getElementById("good_count");
+            var currentValue = parseInt(countInput.value, 10);
+            countInput.value = currentValue + 1;
+        }
+
+        function subGoodCount() {
+            var countInput = document.getElementById("good_count");
+            var currentValue = parseInt(countInput.value, 10);
+            if (currentValue > 1) 
+                countInput.value = currentValue - 1;
+            }
+    </script>
+{% endblock script %}

@@ -1,0 +1,33 @@
+{% extends 'ecshopapp/base_site.html' %}
+{% block meta %}{% endblock %}
+{% block title %}三和レンタル-ログイン{% endblock title %}
+{% block style %}{% endblock style %}
+{% block exclude_footer %}
+    <div class="login_form_bg">
+        <div class="login_form_wrap clearfix">
+            <div class="login_banner fl"></div>
+            <div class="login_form fr rounded">
+                <div class="login_title clearfix">
+                    <h1>ログイン</h1>
+                    <a href="{% url 'home:register' %}">新規登録</a>
+                </div>
+                <div class="form_input">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <input type="text" name="username" class="form-control" placeholder="ユーザー名">
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" name="password" class="form-control" placeholder="パスワード">
+                        </div>
+                        <div class="pwd_error">{{ erro }}</div>
+                        <div class="more_input clearfix">
+                            <input class="form-check-input" type="checkbox" name="">
+                            <label class="form-check-label">ユーザー名を記憶</label>
+                        </div>
+                        <input type="submit" name="" value="ログイン" class="btn btn-primary input_submit">
+                    </form>
+
+                </div>
+            </div>
+{% endblock exclude_footer %}

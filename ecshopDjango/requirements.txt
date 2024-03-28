@@ -1,4 +1,4 @@
-Django
+Django==4.1.4
 diff-match-patch
 django-filter
 django-import-export
@@ -10,3 +10,4 @@ setuptools
 wheel
 django-mdeditor
 Pillow
+django-debug-toolbar==4.3.0

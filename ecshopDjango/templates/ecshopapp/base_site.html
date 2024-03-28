@@ -1,0 +1,56 @@
+{% extends 'Base.html' %}
+{% block meta %}{% endblock meta %}
+{% block title %}{% endblock title %}
+{% block style %}{% endblock style %}
+{% block body %}
+{% block bar %}
+    <div class="header_con bg-light bg-body">
+        <div class="header" >
+            <div class="welcome fl">三和レンタルようこそ!</div>
+            <div class="fr">
+                {% if request.user.is_authenticated %}
+                    <div class="login_btn fl">
+                        ようこそ：<em>{{ request.user.user_nickname }}</em>
+                        <span>|</span>
+                        <a class="ud_line" href="{% url 'home:logout' %}" >ログアウト</a>
+                    </div>
+                {% else %}
+                    <div class="login_btn fl">
+                        <a class="ud_line" href="{% url 'home:login' %}">ログイン</a>
+                        <span>|</span>
+                        <a class="ud_line" href="{% url 'home:register' %}">新規登録</a>
+                    </div>
+                {% endif %}
+            </div>
+{% endblock bar %}
+{% block user_base %}
+        <div class = "body"> 
+            <div class="search_bar clearfix">
+                <div class="search_con fl rounded">
+                    <form method="get" action="{% url 'home:shop' %}">
+                        <input type="text" class="input_text fl form_con" name="search" placeholder="商品検索"
+                            value="{{ request.GET.search }}">
+                        <input type="submit" class="input_btn fr rounded-end" name="" value="検索">
+                    </form>
+                </div>
+            </div>
+        </div>
+{% endblock user_base %}
+{% block content %}
+{% endblock content %}
+{% endblock body %}
+{% block exclude_footer %}
+    <div class="footer">
+            <div class="foot_link">
+                <a href="#">三和レンタルについて</a>
+                <span>|</span>
+                <a href="#">お問い合わせ</a>
+                <span>|</span>
+                <a href="#">採用情報</a>
+                <span>|</span>
+                <a href="#">ヘルプ</a>
+            </div>
+    </div>
+{% endblock exclude_footer %}
+{% block script %}
+{% endblock script %}
